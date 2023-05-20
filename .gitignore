@@ -8,6 +8,7 @@ clickhouse/
 dist
 tmp
 /out-tsc
+summary.yml
 
 # dependencies
 node_modules
@@ -20,6 +21,7 @@ node_modules
 *.launch
 .settings/
 *.sublime-workspace
+.turbo
 
 # IDE - VSCode
 .vscode/*
