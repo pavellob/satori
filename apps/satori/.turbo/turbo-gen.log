@@ -1,0 +1,16 @@
+
+> @red-cucumbers/satori@1.0.0 gen /home/pavellob/dev/monkeybits/red-cucumbers/apps/satori
+> graphql-codegen
+
+[STARTED] Parse Configuration
+[SUCCESS] Parse Configuration
+[STARTED] Generate outputs
+[STARTED] Generate to ./src/modules/
+[STARTED] Load GraphQL schemas
+[SUCCESS] Load GraphQL schemas
+[STARTED] Load GraphQL documents
+[SUCCESS] Load GraphQL documents
+[STARTED] Generate
+[SUCCESS] Generate
+[SUCCESS] Generate to ./src/modules/
+[SUCCESS] Generate outputs

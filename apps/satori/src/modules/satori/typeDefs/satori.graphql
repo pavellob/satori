@@ -1,0 +1,43 @@
+type Query {
+  getSatori(id: UUID!): Satori!
+  getSatoriList: [Satori]!
+}
+
+type Mutation {
+  createSatori(input: CreateSatoriInput!): Satori!
+  updateSatori(input: UpdateSatoriInput!): Satori!
+}
+
+type Subscription {
+  satoriCreated: Satori
+  satoriFromKafka: [Satori]
+}
+
+enum SatoriType {
+  Hard
+  Soft
+  Other
+}
+
+type Satori {
+  id: UUID!
+  name: String!
+  description: String
+  type: SatoriType!
+  defaultScoreTemplate: SatoriScoreTemplate!
+}
+
+input CreateSatoriInput {
+  name: String!
+  type: SatoriType!
+  defaultScoreTemplate: SatoriScoreTemplate!
+  description: String
+}
+
+input UpdateSatoriInput {
+  id: UUID!
+  name: String
+  type: SatoriType
+  description: String
+  defaultScoreTemplate: SatoriScoreTemplate
+}

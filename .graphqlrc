@@ -1,0 +1,4 @@
+projects:
+  satori:
+    schema: "./packages/apps/satori/src/modules/**/typeDefs/*.graphql"
+  

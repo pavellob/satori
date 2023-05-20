@@ -1,0 +1,20 @@
+
+> @red-cucumbers/satori@1.0.0 dev /home/pavellob/dev/monkeybits/red-cucumbers/apps/satori
+> cross-env NODE_ENV=development ts-node-dev --exit-child --respawn src/main.ts
+
+[INFO] 17:27:00 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.1, typescript ver. 5.0.4)
+{"level":"WARN","timestamp":"2023-05-18T10:27:03.024Z","logger":"kafkajs","message":"KafkaJS v2.0.0 switched default partitioner. To retain the same partitioning behavior as in previous versions, create the producer with the option \"createPartitioner: Partitioners.LegacyPartitioner\". See the migration guide at https://kafka.js.org/docs/migration-guide-v2.0.0#producer-new-default-partitioner for details. Silence this warning by setting the environment variable \"KAFKAJS_NO_PARTITIONER_WARNING=1\""}
+Server is running on http://localhost:4000/graphql
+{"level":"INFO","timestamp":"2023-05-18T10:27:03.183Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"group1"}
+{"level":"INFO","timestamp":"2023-05-18T10:27:06.230Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"group1","memberId":"satori-app-97eff1c9-c7f3-447a-acbb-626b1f35985e","leaderId":"satori-app-97eff1c9-c7f3-447a-acbb-626b1f35985e","isLeader":true,"memberAssignment":{"satori-topic":[0]},"groupProtocol":"RoundRobinAssigner","duration":3044}
+{"level":"WARN","timestamp":"2023-05-18T12:47:49.308Z","logger":"kafkajs","message":"[RequestQueue] Response without match","clientId":"satori-app","broker":"localhost:9092","correlationId":7533}
+{"level":"WARN","timestamp":"2023-05-19T07:18:34.409Z","logger":"kafkajs","message":"[RequestQueue] Response without match","clientId":"satori-app","broker":"localhost:9092","correlationId":10450}
+{"level":"WARN","timestamp":"2023-05-19T08:05:00.303Z","logger":"kafkajs","message":"[RequestQueue] Response without match","clientId":"satori-app","broker":"localhost:9092","correlationId":10506}
+{"level":"WARN","timestamp":"2023-05-19T08:59:18.921Z","logger":"kafkajs","message":"[RequestQueue] Response without match","clientId":"satori-app","broker":"localhost:9092","correlationId":10690}
+{"level":"WARN","timestamp":"2023-05-19T13:18:35.292Z","logger":"kafkajs","message":"[RequestQueue] Response without match","clientId":"satori-app","broker":"localhost:9092","correlationId":11312}
+{"level":"ERROR","timestamp":"2023-05-20T05:44:51.307Z","logger":"kafkajs","message":"[Consumer] Crash: KafkaJSNumberOfRetriesExceeded: Request Fetch(key: 1, version: 11) timed out","groupId":"group1","retryCount":5,"stack":"KafkaJSNonRetriableError\n  Caused by: KafkaJSRequestTimeoutError: Request Fetch(key: 1, version: 11) timed out\n    at SocketRequest.timeoutRequest (/home/pavellob/dev/monkeybits/red-cucumbers/node_modules/.pnpm/kafkajs@2.2.4/node_modules/kafkajs/src/network/requestQueue/socketRequest.js:107:19)\n    at /home/pavellob/dev/monkeybits/red-cucumbers/node_modules/.pnpm/kafkajs@2.2.4/node_modules/kafkajs/src/network/requestQueue/index.js:94:21\n    at Map.forEach (<anonymous>)\n    at Timeout._onTimeout (/home/pavellob/dev/monkeybits/red-cucumbers/node_modules/.pnpm/kafkajs@2.2.4/node_modules/kafkajs/src/network/requestQueue/index.js:92:23)\n    at listOnTimeout (node:internal/timers:559:17)\n    at processTimers (node:internal/timers:502:7)"}
+{"level":"WARN","timestamp":"2023-05-20T05:44:51.338Z","logger":"kafkajs","message":"[RequestQueue] Response without match","clientId":"satori-app","broker":"localhost:9092","correlationId":16574}
+{"level":"INFO","timestamp":"2023-05-20T05:44:51.347Z","logger":"kafkajs","message":"[Consumer] Stopped","groupId":"group1"}
+{"level":"ERROR","timestamp":"2023-05-20T05:44:51.347Z","logger":"kafkajs","message":"[Consumer] Restarting the consumer in 6728ms","retryCount":5,"retryTime":6728,"groupId":"group1"}
+{"level":"INFO","timestamp":"2023-05-20T05:44:58.082Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"group1"}
+{"level":"INFO","timestamp":"2023-05-20T05:45:01.103Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"group1","memberId":"satori-app-bf9c

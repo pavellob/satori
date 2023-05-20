@@ -1,0 +1,41 @@
+type Query {
+  getPositions: [Position]
+  getPosition(id: UUID!): Position!
+}
+
+type Mutation {
+  createPosition(input: CreatePositionInput!): Position!
+  updatePosition(input: UpdatePositionInput!): Position!
+}
+
+enum PositionStatus {
+  Draft
+  Active
+  Complete
+  Closed
+}
+
+type Position {
+  id: UUID!
+  name: String!
+  description: String
+  status: PositionStatus!
+  interviews: [PositionInterview]
+}
+
+input UpdatePositionInput {
+  id: UUID!
+  name: String!
+  requirements: [UUID]
+  candidateId: UUID
+  description: String
+  status: PositionStatus
+}
+
+input CreatePositionInput {
+  name: String!
+  candidateId: UUID!
+  status: PositionStatus!
+  requirements: [UUID]
+  description: String
+}

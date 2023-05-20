@@ -1,0 +1,23 @@
+schema: "./src/modules/**/typeDefs/*.graphql"
+extensions:
+  codegen:
+    generates:
+      ./src/modules/:
+        preset: graphql-modules
+        presetConfig:
+          baseTypesPath: ../generated-types/graphql.ts
+          filename: generated-types/module-types.ts
+        plugins:
+          - typescript
+          - typescript-resolvers
+          - typescript-validation-schema
+        config:
+          schema: zod
+          contextType: '@graphql-modules/core#ModuleContext'
+          mappers:
+            User: '@prisma/client#User'
+            Satori: '@prisma/client#Satori'
+            Position: '@prisma/client#Position'
+            SatoriMap: '@prisma/client#SatoriMap'
+            PositionInterview: '@prisma/client#PositionInterview'
+          inputMaybeValue: T | undefined

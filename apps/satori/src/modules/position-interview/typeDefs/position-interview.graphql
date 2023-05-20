@@ -1,0 +1,52 @@
+
+type Query {
+  getPositionInterview(id: UUID!): PositionInterview!
+  getPositionInterviews: [PositionInterview]
+}
+
+type Mutation {
+  createPositionInterview(input: CreatePositionInterviewInput!): PositionInterview!
+  updatePositionInterview(input: UpdatePositionInterviewInput!): PositionInterview!
+}
+
+type PositionInterview {
+  id: UUID!
+  name: String!
+  description: String
+  type: InterviewType!
+  status: InterviewStatus!
+  position: Position!
+}
+
+input CreatePositionInterviewInput {
+  name: String!
+  positionId: UUID!
+  candidateId: UUID!
+  scoreId: UUID!
+  description: String
+  type: InterviewType!
+  status: InterviewStatus!
+}
+
+input UpdatePositionInterviewInput {
+  id: UUID!
+  name: String
+  positionId: UUID
+  candidateId: UUID
+  scoreId: UUID
+  description: String
+  type: InterviewType
+  status: InterviewStatus
+}
+
+enum InterviewType {
+  Internal
+  External
+}
+
+enum InterviewStatus {
+  Draft
+  Active
+  Complete
+  Closed
+}

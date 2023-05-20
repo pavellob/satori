@@ -1,0 +1,19 @@
+{
+  "name": "red-cucumbers",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {
+    "pnpm": "8.4.0"
+  },
+  "devDependencies": {
+    "@red-cucumbers/satori": "workspace:^",
+    "ts-node": "10.9.1",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

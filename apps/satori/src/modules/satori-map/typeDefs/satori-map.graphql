@@ -1,0 +1,36 @@
+type Query {
+  getSatoriMap(id: UUID!): SatoriMap
+  getSatoriMaps: [SatoriMap]
+}
+
+type Mutation {
+  createSatoriMap(input: CreateSatoriMapInput!): SatoriMap
+  updateSatoriMap(input: UpdateSatoriMapInput!): SatoriMap
+}
+
+type SatoriMap {
+  id: UUID!
+  name: String!
+  description: String
+}
+
+input CreateSatoriMapInput {
+  name: String!
+  description: String
+  items: [UUID]
+}
+
+input UpdateSatoriMapInput {
+  id: UUID!
+  name: String
+  description: String
+  items: [UUID]
+}
+
+extend type Position {
+  requirements: [SatoriMap]!
+}
+
+extend type PositionInterview {
+  score: SatoriMap!
+}

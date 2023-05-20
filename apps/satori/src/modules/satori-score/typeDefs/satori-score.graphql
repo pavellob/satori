@@ -1,0 +1,35 @@
+type Query {
+  getSatoriScore(id: UUID!): SatoriScore!
+  getSatoriScores: [SatoriScore]!
+}
+
+type Mutation {
+  scoreSatori(input: ScoreSatoriInput!): SatoriScore!
+}
+
+enum SatoriScoreTemplate {
+  TenStars
+  FiveStars
+  Percents
+  YesNo
+}
+
+type SatoriScore {
+  id: UUID!
+  notes: String
+  satori: Satori!
+  template: SatoriScoreTemplate!
+  value: Int!
+}
+
+input ScoreSatoriInput {
+  satoriId: UUID!
+  value: Int!
+  template: SatoriScoreTemplate!
+  notes: String
+}
+
+extend type SatoriMap {
+  items: [SatoriScore]
+}
+

@@ -1,0 +1,113 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Satori {
+  id                   String              @id @default(uuid())
+  name                 String
+  description          String?
+  type                 SatoriType
+  defaultScoreTemplate SatoriScoreTemplate
+
+  satoriScores SatoriScore[]
+}
+
+model User {
+  id          String  @id @default(uuid())
+  email       String
+  name        String
+  description String?
+
+  satoriScores     SatoriScore[]
+  interviews       PositionInterview[]
+  createdPositions Position[]          @relation("PositionCreatedBy")
+}
+
+model SatoriScore {
+  id       String              @id @default(uuid())
+  value    Int
+  template SatoriScoreTemplate
+  notes    String?
+
+  satoriId    String
+  createdById String
+  satoriMapId String?
+
+  satori    Satori     @relation(fields: [satoriId], references: [id])
+  satoriMap SatoriMap? @relation(fields: [satoriMapId], references: [id])
+  createdBy User      @relation(fields: [createdById], references: [id])
+}
+
+model SatoriMap {
+  id          String  @id @default(uuid())
+  name        String
+  description String?
+
+  items     SatoriScore[]
+  positions Position[]
+  interview PositionInterview?
+}
+
+model Position {
+  id           String              @id @default(uuid())
+  name        String
+  description  String?
+  requirements SatoriMap[]
+  interviews   PositionInterview[]
+  status       PositionStatus
+  createdBy    User                @relation("PositionCreatedBy", fields: [createdById], references: [id])
+  createdById  String
+}
+
+model PositionInterview {
+  id          String          @id @default(uuid())
+  name       String
+  description String?
+  type        InterviewType
+  status      InterviewStatus
+
+  scoreId     String @unique
+  positionId  String
+  candidateId String
+
+  position  Position  @relation(fields: [positionId], references: [id])
+  candidate User      @relation(fields: [candidateId], references: [id])
+  score     SatoriMap @relation(fields: [scoreId], references: [id])
+}
+
+enum PositionStatus {
+  Draft
+  Active
+  Complete
+  Closed
+}
+
+enum SatoriType {
+  Hard
+  Soft
+  Other
+}
+
+enum SatoriScoreTemplate {
+  TenStars
+  FiveStars
+  Percents
+  YesNo
+}
+
+enum InterviewType {
+  Internal
+  External
+}
+
+enum InterviewStatus {
+  Draft
+  Active
+  Complete
+  Closed
+}

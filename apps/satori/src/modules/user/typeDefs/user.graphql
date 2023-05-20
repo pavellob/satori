@@ -1,0 +1,34 @@
+type User {
+  id: UUID!
+  email: String!
+  name: String!
+  description: String
+}
+
+type Query {
+  me: User!
+  getUser(id: UUID!): User!
+  getUsers: [User]!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+}
+
+input CreateUserInput {
+  email: String!
+  name: String!
+  description: String
+}
+
+extend type SatoriScore {
+  createdBy: User!
+}
+
+extend type Position {
+  createdBy: User!
+}
+
+extend type PositionInterview {
+  candidate: User!
+}
