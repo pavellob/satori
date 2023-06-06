@@ -1,4 +1,5 @@
 schema: "./src/modules/**/typeDefs/*.graphql"
+watch: true
 extensions:
   codegen:
     generates:
@@ -10,7 +11,7 @@ extensions:
         plugins:
           - typescript
           - typescript-resolvers
-          - typescript-validation-schema
+          - typescript-validation-schema  
         config:
           schema: zod
           contextType: '@graphql-modules/core#ModuleContext'

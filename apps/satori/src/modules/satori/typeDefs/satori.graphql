@@ -24,13 +24,11 @@ type Satori {
   name: String!
   description: String
   type: SatoriType!
-  defaultScoreTemplate: SatoriScoreTemplate!
 }
 
 input CreateSatoriInput {
   name: String!
   type: SatoriType!
-  defaultScoreTemplate: SatoriScoreTemplate!
   description: String
 }
 
@@ -39,5 +37,4 @@ input UpdateSatoriInput {
   name: String
   type: SatoriType
   description: String
-  defaultScoreTemplate: SatoriScoreTemplate
 }

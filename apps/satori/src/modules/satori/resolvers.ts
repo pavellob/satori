@@ -2,7 +2,7 @@ import { SatoriModule } from "./generated-types/module-types";
 import { PrismaProvider } from "../common/prisma.provider";
 import { PubSub, PubSubEngine } from "graphql-subscriptions";
 import { Kafka } from "kafkajs";
-import { Satori } from "../generated-types/graphql";
+import { Satori } from "../../generated-types/graphql";
 
 const resolvers: SatoriModule.Resolvers = {
   Query: {
